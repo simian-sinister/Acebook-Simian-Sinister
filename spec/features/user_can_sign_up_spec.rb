@@ -8,6 +8,6 @@ RSpec.feature "Sign up", type: :feature do
     fill_in "user[email]", with: "ZOZO@netscape.com"
     fill_in "user[password]", with: "zozo1"
     click_button "Sign Up"
-    expect(page).to have_content("success!")
+    expect(page).to have_content("Hi, ZOZO")
   end
 end
