@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
+  def destroy
+  Post.find_by(params[:post_id]).destroy
+    redirect_to posts_url
+  end
+
   def index
     @posts = Post.all
   end
@@ -16,10 +21,7 @@ class PostsController < ApplicationController
 
   def post_params
     return_hash = params.require(:post).permit(:message)
-    puts return_hash
-    puts current_user
     return_hash['user_id'] = current_user.id
-    p return_hash
     return return_hash
   end
 end
