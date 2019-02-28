@@ -15,6 +15,11 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:message)
+    return_hash = params.require(:post).permit(:message)
+    puts return_hash
+    puts current_user
+    return_hash['user_id'] = current_user.id
+    p return_hash
+    return return_hash
   end
 end
