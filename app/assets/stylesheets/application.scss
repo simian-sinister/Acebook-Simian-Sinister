@@ -7,6 +7,20 @@ iframe {
   height: 150%;
 }
 
+.main-content {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  width: 500px;
+  color: black;
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 15px;
+}
+.main-content ul {
+  list-style: none;
+}
+
 
 .hider {
   align-content: center;

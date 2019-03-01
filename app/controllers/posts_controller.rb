@@ -14,13 +14,13 @@ class PostsController < ApplicationController
   if Post.find(params[:id]).user_id == current_user.id
     Post.find(params[:id]).destroy
     redirect_to posts_url
-    else 
+    else
       # FIXME: GET ERROR MESSAGE
       redirect_to posts_url
     end
   end
 
-  def edit 
+  def edit
     @post = Post.find(params[:id])
   end
 
@@ -28,12 +28,13 @@ class PostsController < ApplicationController
     @post= Post.find(params[:id])
     if @post.update_attributes(post_params)
       redirect_to posts_url
-    else 
+    else
       render "edit"
     end
  end
 
   def index
+    render 'pages/index' unless current_user
     @posts = Post.all.reverse
     @time = Time.now.strftime("%Y-%m-%d %H:%M:%S:%6N")
   end

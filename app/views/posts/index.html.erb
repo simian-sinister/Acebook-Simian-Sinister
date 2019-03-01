@@ -1,19 +1,27 @@
-<ul>
-<% @posts.each do |post| %> 
-<li> 
-  <p><%= post.message %></p> 
-<% if post.user_id == current_user.id%>
-<%= button_to 'Delete', post_path(post), method: :delete %>
-  <% if ( (post.created_at) + (10*60) ) >= @time %>
+<div class="blocker">
+  <div class="main-content">
+    <ul>
+    <% @posts.each do |post| %>
+    <li>
+      <p><%= post.message %></p>
+    <% if post.user_id == current_user.id%>
+    <%= button_to 'Delete', post_path(post), method: :delete %>
+      <% if ( (post.created_at) + (10*60) ) >= @time %>
 
-<%= link_to 'Update', edit_post_path(post)  %>
-  <% end%>
-<% end%>
+    <%= link_to 'Update', edit_post_path(post)  %>
+      <% end%>
+    <% end%>
 
-</li>
-  <% end %>
-</ul>
+    </li>
+      <% end %>
+    </ul>
 
-<%= link_to new_post_path do %>
-  New post
-<% end %>
+    <%= link_to new_post_path do %>
+      New post
+    <% end %>
+  </div>
+</div>
+
+<div class="hider">
+<iframe width="1015" height="571" src="https://www.youtube.com/embed/bkACABMhI1Q?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
