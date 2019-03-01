@@ -10,13 +10,15 @@ class PostsController < ApplicationController
 
   # FIXME: 
   # TODO: AMMEND GITHUB COMMIT MESSAGE!!!
+  
   def destroy
-    # if params[post.user_id] === current_user.id
-  Post.find_by(params[:post_id]).destroy
+  if Post.find(params[:id]).user_id == current_user.id
+    Post.find(params[:id]).destroy
     redirect_to posts_url
-    # else 
-    #   flash[:no!!!!]
-    # end
+    else 
+      # FIXME:
+      redirect_to posts_url
+    end
   end
 
   def index
