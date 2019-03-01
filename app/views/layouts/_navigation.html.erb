@@ -1,26 +1,19 @@
-<nav class="navbar navbar-default">
+<nav class="navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <%= link_to 'Jungl Book', root_path, class: 'navbar-brand' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse-navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       <%if !current_user%>
-      <%= link_to 'Sign up', new_user_registration_path%>
-      <%= link_to 'Sign in', new_user_session_path%>
+      <a href="/users/sign_up"><button class="nav_button">Sign up</button></a>
+      <a href="/users/sign_in"><button class="nav_button">Sign in</button></a>
       <%else%>
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete%>
       <% end %>
-      
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
