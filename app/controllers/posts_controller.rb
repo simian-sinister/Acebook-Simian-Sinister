@@ -1,3 +1,5 @@
+require 'date'
+
 class PostsController < ApplicationController
   def new
     @post = Post.new
@@ -32,7 +34,8 @@ class PostsController < ApplicationController
  end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
+    @time = Time.now.strftime("%Y-%m-%d %H:%M:%S:%6N")
   end
 
   private
