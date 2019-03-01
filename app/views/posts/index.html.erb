@@ -1,6 +1,18 @@
-<% @posts.each do |post| %>
-  <p><%= post.message %></p>
-<% end %>
+<ul>
+<% @posts.each do |post| %> 
+<li> 
+  <p><%= post.message %></p> 
+<% if post.user_id == current_user.id%>
+<%= button_to 'Delete', post_path(post), method: :delete %>
+  <% if ( (post.created_at) + (10*60) ) >= @time %>
+
+<%= link_to 'Update', edit_post_path(post)  %>
+  <% end%>
+<% end%>
+
+</li>
+  <% end %>
+</ul>
 
 <%= link_to new_post_path do %>
   New post
