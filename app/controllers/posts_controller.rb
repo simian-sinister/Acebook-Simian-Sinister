@@ -8,18 +8,28 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
-  # FIXME: 
-  # TODO: AMMEND GITHUB COMMIT MESSAGE!!!
-  
   def destroy
   if Post.find(params[:id]).user_id == current_user.id
     Post.find(params[:id]).destroy
     redirect_to posts_url
     else 
-      # FIXME:
+      # FIXME: GET ERROR MESSAGE
       redirect_to posts_url
     end
   end
+
+  def edit 
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post= Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to posts_url
+    else 
+      render "edit"
+    end
+ end
 
   def index
     @posts = Post.all

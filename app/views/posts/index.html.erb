@@ -3,6 +3,8 @@
 <li> 
   <p><%= post.message %></p> 
 <%= button_to 'Delete', post_path(post), method: :delete %>
+<%= link_to 'Update', edit_post_path(post)  %>
+
 </li>
   <% end %>
 </ul>
