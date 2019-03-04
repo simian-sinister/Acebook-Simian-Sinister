@@ -65,7 +65,7 @@ I want to see the newest posts first.
 
 Overview:
 
-![Mockup of original overview](app/assets/images/Wireframe - Overview.jpg)
+![Mockup of original overview](app/assets/images/Wireframe - Overview.png)
 
 ## Quickstart
 
