@@ -33,9 +33,10 @@ body {
 }
 
 .nav-bar {
+position: fixed;
+width: 100%;
   background-color: red;
   height: 65px;
-  /* background-image: url("app/assets/images/navbar_background.jpg") */
   background-image: url(asset-path("navbar_background.jpg"));
   border-bottom: 1px solid 
 }
