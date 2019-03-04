@@ -3,5 +3,8 @@
 <% end %>
 
 <%= link_to new_post_path do %>
+<% if @user%>
+  welcome, <%= @user.username%>
+  <%end%>
   New post
 <% end %>
