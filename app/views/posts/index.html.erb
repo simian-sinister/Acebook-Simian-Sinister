@@ -2,9 +2,10 @@
   <p><%= post.message %></p>
 <% end %>
 
+ <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
 <%= link_to new_post_path do %>
 <% if @user%>
-  welcome, <%= @user.username%>
+  Welcome, <%= @user.username%>
   <%end%>
   New post
 <% end %>

@@ -1,7 +1,4 @@
-require 'rails_helper'
-
-RSpec.feature 'Sign', type: :feature do
-  scenario 'Users can sign up' do
+def sign_up_nuffmunz
     visit '/users/sign_up'
     fill_in 'user_first_name', with: 'Money'
     fill_in 'user_last_name', with: 'McBags'
@@ -10,6 +7,4 @@ RSpec.feature 'Sign', type: :feature do
     fill_in 'user_password', with: 'Neopets 4eva'
     fill_in 'user_password_confirmation', with: 'Neopets 4eva'
     click_on 'Sign up'
-    expect(page).to have_content("Welcome, nuffmunz")
-  end
 end
