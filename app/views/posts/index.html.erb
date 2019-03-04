@@ -1,5 +1,6 @@
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
+  <%= button_to 'Delete', post_path(post), method: :delete%>
 <% end %>
 <%= link_to 'Sign in', new_user_session_path %>
  <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
@@ -9,3 +10,4 @@
   <%end%>
   New post
 <% end %>
+
