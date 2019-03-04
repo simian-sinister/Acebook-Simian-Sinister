@@ -19,10 +19,28 @@ body {
   padding: 0px
 }
 
+.nav-bar #logo {
+  background-image: url(asset-path("logo.png"));
+  width: 300px;
+  background-size: cover;
+  height: 60px;
+}
+
+.nav-bar:hover #logo {
+  transition: 0.25s;
+  width: 400px;
+  height: 80px;
+}
+
 .nav-bar {
   background-color: red;
   height: 65px;
   /* background-image: url("app/assets/images/navbar_background.jpg") */
-  background-image: image-url("navbar_background.jpg");
+  background-image: url(asset-path("navbar_background.jpg"));
+  border-bottom: 1px solid 
 }
 
+.nav-bar:hover {
+  height: 125px;
+  transition: 0.28s;
+}
