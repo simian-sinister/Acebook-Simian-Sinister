@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0px;
+  padding: 0px
+}
+
+.nav-bar {
+  background-color: red;
+  height: 65px;
+  /* background-image: url("app/assets/images/navbar_background.jpg") */
+  background-image: image-url("navbar_background.jpg");
+}
+

@@ -1,11 +1,16 @@
+<div class = "nav-bar">
+  <%= link_to 'Sign in', new_user_session_path %>
+  <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
+  <%= link_to new_post_path do %>
+  <% if @user%>
+    Welcome, <%= @user.username%>
+  <%end%>
+</div>
+
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
 <% end %>
-<%= link_to 'Sign in', new_user_session_path %>
- <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
-<%= link_to new_post_path do %>
-<% if @user%>
-  Welcome, <%= @user.username%>
-  <%end%>
+
   New post
 <% end %>
+
