@@ -1,7 +1,21 @@
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
+
+  <% if post.user_id == current_user.id %>    
+    <%= button_to 'Delete', post_path(post), method: :delete%>
+  <% end %>
+
+  <%= link_to 'Update', edit_post_path(post) %>
+
 <% end %>
 
+<%= link_to 'Sign in', new_user_session_path %>
+ <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
 <%= link_to new_post_path do %>
+
+<% if @user%>
+  Welcome, <%= @user.username%>
+  <%end%>
   New post
 <% end %>
+
