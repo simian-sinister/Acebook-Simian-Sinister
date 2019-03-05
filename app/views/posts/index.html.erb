@@ -11,7 +11,7 @@
    <p id="greeting"> Hakuna Matata, <br> <%= @user.username%> </p>
   <%end%> </div>
 <div id="nav-c-g3"> 
-  <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
+  <div id="sign-out"><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></div>
 </div>
 </div>
 
@@ -19,13 +19,10 @@
 </div>
 
 <main id='con1'>
-<div id='con1-g1'>
-  <%= link_to new_post_path do %>
-  <div id="new-post">New post</div>
-<% end %></div>
+<div id='con1-g1'></div>
 <div id='con1-g2'>
 <% @posts.each do |post| %>
-  <div id="message">
+  <div id="message-con">
   <p id=username><%= post.id %> </p>
   <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
   <p><%= post.message %></p>
@@ -38,7 +35,9 @@
   </div>
 <div id='con1-g3'></div>
 <div id='con1-g4'></div>
-<div id='con1-g5'><%= image_tag ("down_arrow.png")%></div>
+<div id='con1-g5'>  <%= link_to new_post_path do %>
+  <div id="new-post">Shout To The Jungle</div>
+<% end %><%= image_tag ("down_arrow.png")%></div>
 <div id='con1-g6'></div>
 
 </main>

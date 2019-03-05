@@ -3,6 +3,7 @@ body {
     height: 100%;
 }
 
+
 #nav-c {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -42,9 +43,6 @@ body {
     justify-content: space-between;
 }
 
-// #message-header{
-
-// }
 #username {
     float: left;
 }
@@ -53,37 +51,20 @@ body {
     float: right;
 }
 
-#message {
+#message-con {
     margin-top: 10%;
     background-color: rgba(255, 255, 255, 0.7);
 }
 
+#message-text {
+    text-align: center;
+}
 #delete {
     float: left;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid #fff;
-    font-family: Helvetica;
-    cursor: pointer;
-    color: white;
-    width: 50%;
-    padding: 1em 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
 }
 
 #update {
     float: right;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid #fff;
-    font-family: Helvetica;
-    cursor: pointer;
-    color: white;
-    width: 50%;
-    padding: 1em 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
 }
 
 #con1-g1 {
@@ -93,14 +74,40 @@ body {
 }
 
 
-#new-post {
+#sign-out, #new-post, #update, #delete  {
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid #fff;
     font-family: Helvetica;
     color: white;
-    width: 50%;
+    width: auto;
     padding: 1em 1.5em;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
+    cursor: pointer;
+}
+
+#sign-out:hover, #new-post:hover, #update:hover, #delete:hover {
+    background-color: rgba(0, 0, 0, 1);
+    border: 1px dotted #fff;
+    font-family: Helvetica;
+    color: white;
+    width: auto;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+#new-post {
+    display: inline-block;
+    width: 50%
+}
+
+#new-post:hover {
+    background-color: rgba(0, 0, 0, 1);
+    transform: scale(1.2);
 }
