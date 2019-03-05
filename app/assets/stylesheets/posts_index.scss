@@ -42,9 +42,48 @@ body {
     justify-content: space-between;
 }
 
+// #message-header{
+
+// }
+#username {
+    float: left;
+}
+
+#timestamp {
+    float: right;
+}
+
 #message {
     margin-top: 10%;
     background-color: rgba(255, 255, 255, 0.7);
+}
+
+#delete {
+    float: left;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #fff;
+    font-family: Helvetica;
+    cursor: pointer;
+    color: white;
+    width: 50%;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+#update {
+    float: right;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #fff;
+    font-family: Helvetica;
+    cursor: pointer;
+    color: white;
+    width: 50%;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 #con1-g1 {

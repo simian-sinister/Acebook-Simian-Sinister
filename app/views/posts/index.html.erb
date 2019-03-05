@@ -26,7 +26,13 @@
 <div id='con1-g2'>
 <% @posts.each do |post| %>
   <div id="message">
+  <p id=username><%= post.id %> </p>
+  <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
   <p><%= post.message %></p>
+  <%# <div id="button-con"> %>
+  <button id="delete">DELETE ME!!!</button>
+  <button id="update">UPDATE ME!!!</button>
+  <%# </div> %>
   </div>
 <% end %>
   </div>
