@@ -29,6 +29,14 @@ RSpec.feature 'CRUD post', type: :feature do
     expect('bah').to appear_before('Hello, world!')
   end
 
+  scenario 'Can view the time and date a post is posted' do
+    sign_up_nuffmunz
+    @time_now = Time.now
+    allow(Time).to receive(:now).and_return(@time_now)
+    create_post_hello_world
+    expect(page).to have_content(@time_now.strftime("%Y-%m-%d %H:%M"))
+  end
+
   scenario 'Can delete their post' do
     sign_up_eddie
     create_post_hello_world
@@ -64,10 +72,10 @@ RSpec.feature 'CRUD post', type: :feature do
   end
 
   scenario 'Can not update their own post after 10 minutes' do
-    @time = (Time.now + (10 * 60 + 1))
     sign_up_eddie
     create_post_hello_world
-    allow(Time).to receive(:now).and_return(@time)
+    @future_time = (Time.now + (10*60 + 1))
+    allow(Time).to receive(:now).and_return(@future_time)
     visit '/posts'
     expect(page).to_not have_content('Update')
   end
