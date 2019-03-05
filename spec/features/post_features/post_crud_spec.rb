@@ -11,6 +11,14 @@ RSpec.feature 'CRUD post', type: :feature do
     expect(page).to have_content('Hello, world!')
   end
 
+  scenario 'Can view posts in a reverse order'do 
+  sign_up_nuffmunz
+    expect(page).to have_content("Welcome, nuffmunz")
+    create_post_hello_world
+    create_post_bah
+    expect('bah').to appear_before('Hello, world!')
+  end
+
   scenario 'Can delete their post' do
     sign_up_eddie
     create_post_hello_world
