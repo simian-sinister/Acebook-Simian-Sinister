@@ -5,10 +5,16 @@ RSpec.feature 'CRUD post', type: :feature do
   scenario 'Can submit posts and view them' do
     sign_up_nuffmunz
     expect(page).to have_content("Welcome, nuffmunz")
-    click_link 'New post'
-    fill_in 'Message', with: 'Hello, world!'
-    click_on 'Submit'
+    create_post_hello_world
     expect(page).to have_content('Hello, world!')
+  end
+
+  scenario 'Can view posts in a reverse order'do 
+  sign_up_nuffmunz
+    expect(page).to have_content("Welcome, nuffmunz")
+    create_post_hello_world
+    create_post_bah
+    expect('bah').to appear_before('Hello, world!')
   end
 
   scenario 'Can delete their post' do
@@ -42,6 +48,15 @@ RSpec.feature 'CRUD post', type: :feature do
     create_post_hello_world
     click_on 'Sign out'
     sign_up_nuffmunz
+    expect(page).to_not have_content('Update')
+  end
+
+  scenario 'Can not update their own post after 10 minutes' do
+    @time = (Time.now + (10*60 + 1))
+    sign_up_eddie
+    create_post_hello_world
+    allow(Time).to receive(:now).and_return(@time)
+    visit '/posts'
     expect(page).to_not have_content('Update')
   end
 end
