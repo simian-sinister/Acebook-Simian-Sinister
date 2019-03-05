@@ -1,3 +1,4 @@
+
 def sign_up_nuffmunz
     visit '/users/sign_up'
     fill_in 'user_first_name', with: 'Money'
@@ -31,6 +32,3 @@ def create_post_bah
   fill_in 'Message', with: 'bah'
   click_button 'Submit'
 end
-
-
-

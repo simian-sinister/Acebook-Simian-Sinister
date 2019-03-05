@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <p><%= post.message %></p>
+  <p><%= simple_format(post.message) %></p>
 
   <% if post.user_id == current_user.id %>    
     <%= button_to 'Delete', post_path(post), method: :delete%>
