@@ -3,8 +3,9 @@
 
   <% if post.user_id == current_user.id %>    
     <%= button_to 'Delete', post_path(post), method: :delete%>
-    <%= link_to 'Update', edit_post_path(post) %>
-
+    <% if ( (post.created_at) + (10*60) ) >= @time %>
+      <%= link_to 'Update', edit_post_path(post) %>
+    <% end %>
   <% end %>
 <% end %>
 

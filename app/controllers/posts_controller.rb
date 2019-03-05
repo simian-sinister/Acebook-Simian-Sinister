@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     redirect_to new_user_session_path unless current_user
     @user = current_user
     @posts = Post.all
+    @time = Time.now.strftime("%Y-%m-%d %H:%M:%S:%6N")
   end
 
   def destroy

@@ -44,4 +44,13 @@ RSpec.feature 'CRUD post', type: :feature do
     sign_up_nuffmunz
     expect(page).to_not have_content('Update')
   end
+
+  scenario 'Can not update their own post after 10 minutes' do
+    @time = (Time.now + (10*60 + 1))
+    sign_up_eddie
+    create_post_hello_world
+    allow(Time).to receive(:now).and_return(@time)
+    visit '/posts'
+    expect(page).to_not have_content('Update')
+  end
 end
