@@ -26,4 +26,14 @@ RSpec.feature 'CRUD post', type: :feature do
     sign_up_nuffmunz
     expect(page).to_not have_content('Delete')
   end
+
+  scenario 'Can update their post' do
+    sign_up_eddie
+    create_post_hello_world
+    expect(page).to have_content('Hello, world!')
+    click_on 'Update'
+    fill_in 'Message', with: 'updated: Hello, world!'
+    click_on 'Update'
+    expect(page).to have_content('updated: Hello, world!')
+  end
 end
