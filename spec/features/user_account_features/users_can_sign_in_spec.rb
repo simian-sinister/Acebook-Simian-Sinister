@@ -7,7 +7,6 @@ RSpec.feature 'Sign in', type: :feature do
     expect(page).to have_content("Welcome, nuffmunz")
     click_on "Sign out"
     expect(page).to_not have_content("Welcome, nuffmunz")
-    click_on "Sign in"
     fill_in 'user_email', with: 'rich@money.cash'
     fill_in 'user_password', with: 'Neopets 4eva'
     click_on 'sign in'

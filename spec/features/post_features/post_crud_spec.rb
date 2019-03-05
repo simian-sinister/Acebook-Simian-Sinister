@@ -12,9 +12,18 @@ RSpec.feature 'CRUD post', type: :feature do
   end
 
   scenario 'Can delete their post' do
+    sign_up_eddie
     create_post_hello_world
     expect(page).to have_content('Hello, world!')
     click_on 'Delete'
     expect(page).to_not have_content('Hello, world!')
+  end
+
+  scenario 'Can only delete their own post' do
+    sign_up_eddie
+    create_post_hello_world
+    click_on 'Sign out'
+    sign_up_nuffmunz
+    expect(page).to_not have_content('Delete')
   end
 end
