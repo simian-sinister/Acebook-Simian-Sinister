@@ -36,4 +36,12 @@ RSpec.feature 'CRUD post', type: :feature do
     click_on 'Update'
     expect(page).to have_content('updated: Hello, world!')
   end
+
+  scenario 'Can only update their own post' do
+    sign_up_eddie
+    create_post_hello_world
+    click_on 'Sign out'
+    sign_up_nuffmunz
+    expect(page).to_not have_content('Update')
+  end
 end
