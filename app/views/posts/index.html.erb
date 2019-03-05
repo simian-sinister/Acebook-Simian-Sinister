@@ -1,18 +1,41 @@
-<div class = "nav-bar">
-<div id="logo">
-</div>
-  <%= link_to 'Sign in', new_user_session_path %>
+<head>
+
+<%= stylesheet_link_tag 'posts_index' %>
+</head>
+
+<body>
+
+<div id="nav-c">
+<div id="nav-c-g1"><%= image_tag ("logo.png")%></div>
+<div id="nav-c-g2"> <% if @user%>
+   <p id="greeting"> Hakuna Matata, <br> <%= @user.username%> </p>
+  <%end%> </div>
+<div id="nav-c-g3"> 
   <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
-  <% if @user%>
-    Welcome, <%= @user.username%>
-  <%end%>
+</div>
 </div>
 
-<% @posts.each do |post| %>
-  <p><%= post.message %></p>
-<% end %>
+</div>
+</div>
 
+<main id='con1'>
+<div id='con1-g1'>
   <%= link_to new_post_path do %>
-  New post
+  <div id="new-post">New post</div>
+<% end %></div>
+<div id='con1-g2'>
+<% @posts.each do |post| %>
+  <div id="message">
+  <p><%= post.message %></p>
+  </div>
 <% end %>
+  </div>
+<div id='con1-g3'></div>
+<div id='con1-g4'></div>
+<div id='con1-g5'><%= image_tag ("down_arrow.png")%></div>
+<div id='con1-g6'></div>
 
+</main>
+
+
+</body>
