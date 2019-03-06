@@ -21,8 +21,9 @@ RSpec.feature 'Sign', type: :feature do
     fill_in 'user_email', with: 'rich@money.cash'
     fill_in 'user_password', with: 'Neopets 4eva'
     fill_in 'user_password_confirmation', with: 'Neopets 4eva'
-    attach_file("Choose file", Rails.root + "spec/fixtures/monkeyboi.jpg")
+    attach_file("Profile picture", Rails.root + "spec/fixtures/monkeyboi.jpg")
     click_on 'Sign up'
-    expect(page.find('#profile-picture')['src']).to have_content 'monkeyboi.jpg'
+    p page.body
+    expect(page.find('#profile-picture img')['src']).to have_content 'monkeyboi.jpg'
   end
 end
