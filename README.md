@@ -5,7 +5,7 @@
 * As a team, for this project, we decided to focus on our processes and practising agile development. This was a steep learning curve due to the use of a new technology. We completed our first week using a 'spike' method to get a better understanding of the tech. We followed this up with a regimented agile TDD approach - [click here](https://github.com/simian-sinister/Acebook-Simian-Sinister/wiki) for our learning documentation.
 
 -----
-**User Stories:**
+## **User Stories:**
 
 ```
 As a new user,
@@ -60,6 +60,39 @@ As a signed-in user,
 So I can see the latest updates with ease,
 I want to see the newest posts first.
 ```
+## Added user stories
+```
+As a signed-in user,
+So other users can see my photos,
+I want to be able to upload photos
+
+As a signed-in user,
+So I can store all my photos in one place,
+I want to be able to upload photos to my album
+
+As a signed-in user,
+So I can customise my profile picture,
+I want to be able to upload a profile picture
+
+As a signed-in user,
+so I can give context to my photos,
+I want to be able to add a description
+
+As a signed-in user,
+So I can manage my privacy,
+I want to be able to delete my photos
+
+As a signed-in user,
+So I can see what my friends are up to
+I want to be able to see other users' albums
+
+As a signed-in user,
+So I can correct my photos' descriptions
+I want to be able to edit my photo's descriptions
+
+```
+
+
 
 ## Original wireframe
 
