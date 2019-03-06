@@ -7,9 +7,11 @@
 
 <div id="nav-c">
 <div id="nav-c-g1"><%= image_tag ("logo.png")%></div>
-<div id="nav-c-g2"> <% if @user%>
+<div id="nav-c-g2"> 
+  <% if @user%>
    <p id="greeting"> Hakuna Matata, <br> <%= @user.username%> </p>
-  <%end%> </div>
+  <%end%> 
+  </div>
 <div id="nav-c-g3"> 
   <div id="sign-out"><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></div>
 </div>
@@ -23,12 +25,16 @@
 <div id='con1-g2'>
 <% @posts.each do |post| %>
   <div id="message-con">
-  <p id=username><%= post.id %> </p>
+  <p id=username><%= @users.find(post.user_id).username %> </p>
   <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
-  <p><%= post.message %></p>
+  <p><%= simple_format(post.message) %></p>
   <%# <div id="button-con"> %>
-  <button id="delete">DELETE ME!!!</button>
-  <button id="update">UPDATE ME!!!</button>
+  <% if post.user_id == current_user.id %>
+    <%= button_to 'Delete', post_path(post), id: 'delete', method: :delete%>
+    <% if ( (post.created_at) + (10*60) ) >= @time %>
+      <%= link_to 'Update', edit_post_path(post), id: 'update' %>
+    <% end %>
+  <% end %>
   <%# </div> %>
   </div>
 <% end %>
@@ -41,6 +47,7 @@
 <div id='con1-g6'></div>
 
 </main>
+
 
 
 </body>
