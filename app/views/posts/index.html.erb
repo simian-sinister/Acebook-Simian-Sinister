@@ -1,20 +1,53 @@
+<head>
+
+<%= stylesheet_link_tag 'posts_index' %>
+</head>
+
+<body>
+
+<div id="nav-c">
+<div id="nav-c-g1"><%= image_tag ("logo.png")%></div>
+<div id="nav-c-g2"> 
+  <% if @user%>
+   <p id="greeting"> Hakuna Matata, <br> <%= @user.username%> </p>
+  <%end%> 
+  </div>
+<div id="nav-c-g3"> 
+  <div id="sign-out"><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></div>
+</div>
+</div>
+
+</div>
+</div>
+
+<main id='con1'>
+<div id='con1-g1'></div>
+<div id='con1-g2'>
 <% @posts.each do |post| %>
+  <div id="message-con">
+  <p id=username><%= @users.find(post.user_id).username %> </p>
+  <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
   <p><%= simple_format(post.message) %></p>
-  <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+  <%# <div id="button-con"> %>
   <% if post.user_id == current_user.id %>
-    <%= button_to 'Delete', post_path(post), method: :delete%>
+    <%= button_to 'Delete', post_path(post), id: 'delete', method: :delete%>
     <% if ( (post.created_at) + (10*60) ) >= @time %>
-      <%= link_to 'Update', edit_post_path(post) %>
+      <%= link_to 'Update', edit_post_path(post), id: 'update' %>
     <% end %>
   <% end %>
+  <%# </div> %>
+  </div>
 <% end %>
+  </div>
+<div id='con1-g3'></div>
+<div id='con1-g4'></div>
+<div id='con1-g5'>  <%= link_to new_post_path do %>
+  <div id="new-post">Shout To The Jungle</div>
+<% end %><%= image_tag ("down_arrow.png")%></div>
+<div id='con1-g6'></div>
 
-<%= link_to 'Sign in', new_user_session_path %>
- <%= link_to('Sign out', destroy_user_session_path, method: :delete) %>
-<%= link_to new_post_path do %>
+</main>
 
-<% if @user%>
-  Welcome, <%= @user.username%>
-  <%end%>
-  New post
-<% end %>
+
+
+</body>

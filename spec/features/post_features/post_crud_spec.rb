@@ -6,15 +6,15 @@ require 'web_helper'
 RSpec.feature 'CRUD post', type: :feature do
   scenario 'Can submit posts and view them' do
     sign_up_nuffmunz
-    expect(page).to have_content('Welcome, nuffmunz')
+    expect(page).to have_content('Hakuna Matata, nuffmunz')
     create_post_hello_world
-    expect(page).to have_content('Hello, world!')
+    expect(page).to have_content('Hakuna Matata, nuffmunz')
   end
 
   scenario 'can add line breaks' do
     sign_up_nuffmunz
-    expect(page).to have_content('Welcome, nuffmunz')
-    click_link 'New post'
+    expect(page).to have_content('Hakuna Matata, nuffmunz')
+    click_link 'Shout To The Jungle'
     find('textarea#post_message').set("Hi\nthere")
     click_on 'Submit'
     expect(page.text).to have_text('Hi there')
@@ -23,7 +23,7 @@ RSpec.feature 'CRUD post', type: :feature do
 
   scenario 'Can view posts in a reverse order' do
     sign_up_nuffmunz
-    expect(page).to have_content('Welcome, nuffmunz')
+    expect(page).to have_content('Hakuna Matata, nuffmunz')
     create_post_hello_world
     create_post_bah
     expect('bah').to appear_before('Hello, world!')
@@ -34,7 +34,7 @@ RSpec.feature 'CRUD post', type: :feature do
     @time_now = Time.now
     allow(Time).to receive(:now).and_return(@time_now)
     create_post_hello_world
-    expect(page).to have_content(@time_now.strftime("%Y-%m-%d %H:%M"))
+    expect(page).to have_content(@time_now.strftime("%b %-d, %y %l:%M%P"))
   end
 
   scenario 'Can delete their post' do

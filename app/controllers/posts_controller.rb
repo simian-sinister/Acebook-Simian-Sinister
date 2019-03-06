@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def index
     redirect_to new_user_session_path unless current_user
     @user = current_user
+    @users = User.all
     @posts = Post.all.reverse
     @time = Time.now.strftime("%Y-%m-%d %H:%M:%S:%6N")
   end
