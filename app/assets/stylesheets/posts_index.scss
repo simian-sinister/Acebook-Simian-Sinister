@@ -22,12 +22,12 @@
 }
 
 #con1 {
-   
+
     padding-top: 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    
+
 }
 
 #con1-g2 {
@@ -36,7 +36,19 @@
     overflow-y: scroll;
     flex-direction: column;
     justify-content: space-between;
-    
+
+}
+
+#poster_avi {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border: white solid 1px;
+  border-radius: 25px;
+}
+
+#poster_avi img {
+  width: 50px;
 }
 
 #username {
@@ -178,5 +190,3 @@
     background-color: rgba(0, 0, 0, 1);
     transform: scale(1.2);
 }
-
-
