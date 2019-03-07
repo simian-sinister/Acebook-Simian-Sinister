@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
-
+  resources :users do
+    resource :profile_picture, only: [:edit,:update]
+  end
 
 end
