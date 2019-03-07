@@ -10,7 +10,7 @@ RSpec.feature 'Sign', type: :feature do
     fill_in 'user_password', with: 'Neopets 4eva'
     fill_in 'user_password_confirmation', with: 'Neopets 4eva'
     click_on 'Sign up'
-    expect(page).to have_content("Welcome, nuffmunz")
+    expect(page).to have_content("Hakuna Matata, nuffmunz")
   end
 
   scenario 'User can attach a profile picture at signup' do

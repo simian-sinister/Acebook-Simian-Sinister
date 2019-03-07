@@ -22,13 +22,13 @@ def sign_up_eddie
 end
 
 def create_post_hello_world
-  click_link 'New post'
+  click_link 'Shout To The Jungle'
   fill_in 'Message', with: 'Hello, world!'
   click_button 'Submit'
 end
 
 def create_post_bah
-  click_link 'New post'
+  click_link 'Shout To The Jungle'
   fill_in 'Message', with: 'bah'
   click_button 'Submit'
 end

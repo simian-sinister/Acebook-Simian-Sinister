@@ -1,6 +1,16 @@
-<%= form_for @post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
+<div class = "nav-bar">
+  <div id="nav-menu">
+      <%= link_to('Sign out', destroy_user_session_path, method: :delete, :id => 'sign-in') %>
+  </div>
+  <div id="logo">  
+  </div>  
+</div>
 
-  <%= form.submit "Update" %>
+<div class = "message">
+<%= form_for @post do |form| %>
+  <%= form.label :message, class: "hidden" %>
+  <%= form.text_area :message, placeholder: "Message", class: "form-basic" %>
+
+  <%= form.submit "Update", :id => 'sign-in'%>
 <% end %>
+</div>
