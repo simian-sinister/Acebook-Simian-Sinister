@@ -25,59 +25,61 @@ body {
 }
 
 .field {
-    width: 100%
-}
-
-.form-email {
-    width: 90%;
-    height: 150%;
-    text-align: center;
+    width: 100%;
+    border-radius: 50px 20px;
+    color: brown;
 }
 
 .form-password {
     width: 90%;
     text-align: center;
-}
+    border-radius: 50px 20px;
+    color: brown;
 
+}
 
 #sign-in {
     background-color: rgba(0, 0, 0, 0.7);
-    font-family: Helvetica;
-    border: 1px solid #fff;
     width: 100%;
     color: white;
     padding: 1em 1.5em;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
+    font-size: 10px;
+    border-radius: 50px 20px;
+    margin-bottom: 10px;
 }
 
 #sign-in:hover, #forgot-password-link:hover, #sign-up-link:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: black;
     font-weight: bolder;
+    border-radius: 50px 20px;
 }
 
 #forgot-password-link {
     background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid #fff;
-    font-family: Helvetica;
     color: white;
     padding: 1em 1.5em;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
+    height: 10px;
+    font-size: 10px;
+    border-radius: 50px 20px;
 }
 
 
 #sign-up-link {
     background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid #fff;
-    font-family: Helvetica;
     color: white;
     padding: 1em 1.5em;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
+    height: 10px;
+    font-size: 10px;
+    border-radius: 50px 20px;
 }
 

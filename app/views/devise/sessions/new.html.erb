@@ -1,3 +1,11 @@
+<div class = "nav-bar">
+  <div id="nav-menu">
+      Hakuna Matata!
+  </div>
+  <div id="logo">  
+  </div>  
+</div>
+
 <main id='grid-container'>
 <div id='g1'></div>
 <div id='g2'></div>
@@ -7,12 +15,12 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email, class: "hidden"%><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "EMAIL", class: "form-email"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "EMAIL", class: "form-basic"%>
   </div>
   <br>
   <div class="field">
     <%= f.label :password, class: "hidden" %><br />
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "PASSWORD", class: "form-password"%>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "PASSWORD", class: "form-basic"%>
   </div>
 <br>
 <br>

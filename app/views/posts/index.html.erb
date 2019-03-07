@@ -1,23 +1,14 @@
-<head>
-
-<%= stylesheet_link_tag 'posts_index' %>
-</head>
-
-<body>
-
-<div id="nav-c">
-<div id="nav-c-g1"><%= image_tag ("logo.png")%></div>
-<div id="nav-c-g2"> 
-  <% if @user%>
-   <p id="greeting"> Hakuna Matata, <br> <%= @user.username%> </p>
-  <%end%> 
+<div class = "nav-bar">
+  <div id="nav-menu">
+    <% if @user == current_user%>
+      Hakuna Matata, <%= @user.username%>
+      <%= link_to('Sign out', destroy_user_session_path, method: :delete, :id => 'sign-in') %>
+      <% else %>
+      <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in' %>
+    <%end%>
   </div>
-<div id="nav-c-g3"> 
-  <div id="sign-out"><%= link_to('Sign out', destroy_user_session_path, method: :delete) %></div>
-</div>
-</div>
-
-</div>
+  <div id="logo">  
+  </div>  
 </div>
 
 <main id='con1'>
@@ -25,9 +16,12 @@
 <div id='con1-g2'>
 <% @posts.each do |post| %>
   <div id="message-con">
-  <p id=username><%= @users.find(post.user_id).username %> </p>
-  <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
-  <p><%= simple_format(post.message) %></p>
+  <p id=username><%= @users.find(post.user_id).username + " shouted:" %> </p>
+  <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%> 
+  <br/>
+
+  <p> 
+  <%= simple_format(post.message) %> </p>
   <%# <div id="button-con"> %>
   <% if post.user_id == current_user.id %>
     <%= button_to 'Delete', post_path(post), id: 'delete', method: :delete%>
@@ -41,9 +35,11 @@
   </div>
 <div id='con1-g3'></div>
 <div id='con1-g4'></div>
-<div id='con1-g5'>  <%= link_to new_post_path do %>
+<div id='con1-g5'>  
+<%= link_to new_post_path do %>
   <div id="new-post">Shout To The Jungle</div>
-<% end %><%= image_tag ("down_arrow.png")%></div>
+<% end %>
+<%= image_tag ("down_arrow.png")%></div>
 <div id='con1-g6'></div>
 
 </main>
