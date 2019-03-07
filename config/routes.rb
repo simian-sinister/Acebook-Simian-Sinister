@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resource :profile_picture, only: [:edit,:update,:destroy]
+    resources :photo_post
   end
 
 
