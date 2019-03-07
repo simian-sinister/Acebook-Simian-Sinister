@@ -4,7 +4,11 @@ class PhotoPostsController < ApplicationController
   # GET /photo_posts
   # GET /photo_posts.json
   def index
-    @photo_posts = PhotoPost.all
+    p "!!!!!!!!"
+    p photo_post_params
+    p params[:user_id]
+
+    @photo_posts = params[:user_id] ? PhotoPost.where(user_id: params[:user_id]) : PhotoPost.all
   end
 
   # GET /photo_posts/1
