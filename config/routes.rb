@@ -6,12 +6,11 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts, :profilepictures
+  resources :posts, :profilepictures, :photo_posts
 
   resources :users do
     resource :profile_picture, only: [:edit,:update,:destroy]
-    resources :photo_post
+    resources :photo_posts
   end
-
 
 end

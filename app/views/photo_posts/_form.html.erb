@@ -1,0 +1,17 @@
+<%= form_with(model: @photo_post, local: true, multipart: true) do |form| %>
+  <% if @photo_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo_post.errors.count, "error") %> prohibited this photo_post from being saved:</h2>
+
+      <ul>
+      <% photo_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= file_field :photo_post, :photo %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
