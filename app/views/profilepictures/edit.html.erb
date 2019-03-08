@@ -1,1 +1,31 @@
-lol
+<div class = "nav-bar">
+  <div id="nav-menu">
+    <% if @user == current_user%>
+      Hakuna Matata, <%= @user.username%>
+      <%= link_to('Sign out', destroy_user_session_path, method: :delete, :id => 'sign-in') %>
+      <% else %>
+      <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in' %>
+    <%end%>
+    <div id="profile-picture">
+      <%= image_tag @user.profile_picture if @user.profile_picture.attached? %>
+    </div>
+  </div>
+</div>
+
+<div style="padding-top: 100px;">
+  <div class="profile-picture-name">
+  <%= @user.first_name %>'s profile picture:
+  </div>
+<div id="edit-profile-pricture">
+  <%= image_tag @user.profile_picture if @user.profile_picture.attached? %>
+</div>
+<div class="profile-picture-form">
+  <%= form_tag(profilepicture_path, method: :put, multipart: true) do %>
+
+    <%= file_field_tag :profile_picture %>
+
+    <%= submit_tag "Update"%>
+  <% end %>
+  <%= button_to 'Delete', profilepicture_path, method: :delete %>
+</div>
+</div>
