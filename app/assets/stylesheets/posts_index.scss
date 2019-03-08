@@ -40,6 +40,8 @@
 }
 
 #poster_avi {
+  background-image: url(asset-path("default_profile.png"));
+  background-size: cover;
   height: 50px;
   width: 50px;
   overflow: hidden;
