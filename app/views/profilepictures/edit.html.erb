@@ -22,9 +22,10 @@
 </div>
 <div class="profile-picture-form">
   <%= form_tag(profilepicture_path, method: :put, multipart: true) do %>
-<br>
+    <br>
+    <%= label_tag :profile_picture %>
     <%= file_field_tag :profile_picture %>
-<br>
+    <br>
     <%= submit_tag "Update"%>
     <br>
   <% end %>
