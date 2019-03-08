@@ -22,11 +22,12 @@
   font-size: 14px;
 }
 .profile-picture-form form input{
-  display: flex;
-  justify-content: center;
   color: black;
   font-size: 25px;
-  // background-color: orange;
+  display: inline-flex;
+  max-width: 300px;
+  // background-color: grey;
+  // color: orange;
   // cursor: pointer;
   // overflow: hidden;
 
