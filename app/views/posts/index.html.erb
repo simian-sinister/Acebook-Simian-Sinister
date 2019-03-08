@@ -19,7 +19,7 @@
 <div id='con1-g2'>
 <% @posts.each do |post| %>
   <div id="message-con">
-  <div id="poster_avi"><%= image_tag @users.find(post.user_id).profile_picture %></div>
+  <div id="poster_avi"><%= image_tag @users.find(post.user_id).profile_picture if @user.profile_picture.attached?%></div>
   <p id=username><%= @users.find(post.user_id).username + " shouted:" %> </p>
   <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
   <br/>
