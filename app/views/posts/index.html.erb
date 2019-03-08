@@ -6,9 +6,12 @@
       <% else %>
       <%= link_to 'Sign in', new_user_session_path, :id => 'sign-in' %>
     <%end%>
+    <div id="profile-picture">
+      <%= image_tag @user.profile_picture if @user.profile_picture.attached? %>
+    </div>
   </div>
-  <div id="logo">  
-  </div>  
+  <div id="logo">
+  </div>
 </div>
 
 <main id='con1'>
@@ -16,11 +19,12 @@
 <div id='con1-g2'>
 <% @posts.each do |post| %>
   <div id="message-con">
+  <div id="poster_avi"><%= image_tag @users.find(post.user_id).profile_picture if @user.profile_picture.attached?%></div>
   <p id=username><%= @users.find(post.user_id).username + " shouted:" %> </p>
-  <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%> 
+  <p id="timestamp"><%= post.created_at.strftime("%b %-d, %y %l:%M%P")%>
   <br/>
 
-  <p> 
+  <p>
   <%= simple_format(post.message) %> </p>
   <%# <div id="button-con"> %>
   <% if post.user_id == current_user.id %>
@@ -35,13 +39,13 @@
   </div>
 <div id='con1-g3'></div>
 <div id='con1-g4'></div>
-<div id='con1-g5'>  
+<div id='con1-g5'>
 <%= link_to new_post_path do %>
   <div id="new-post">Shout To The Jungle</div>
 <% end %>
 <%= image_tag ("down_arrow.png")%></div>
 <div id='con1-g6'></div>
-
+<%= link_to 'update profile picture', edit_user_profile_picture_path(@user.id) %>
 </main>
 
 
